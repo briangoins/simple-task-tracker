@@ -1,0 +1,6 @@
+CREATE TABLE IF NOT EXISTS tasks (
+  id INTEGER PRIMARY KEY ASC,
+  user_id INTEGER NOT NULL,
+  title TEXT,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
