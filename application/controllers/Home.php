@@ -18,10 +18,18 @@ class Home extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+	 public function __construct()
+	 {
+		 parent::__construct();
+		 $this->load->model('user_model');
+	 }
+
+
 	public function index()
 	{
 		$this->load->helper('form');
 		$data['title'] = 'Simple Task Tracker';
+		$data['users'] = $this->user_model->findAll();
 		$this->load->view('home', $data);
 	}
 }

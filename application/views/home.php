@@ -23,6 +23,17 @@
 		<div class="col-md-6">
 			<h2>Users</h2>
 			<ul>
+				<?php foreach ($users as $user): ?>
+				<li>
+					<strong><?php echo $user['username']; ?></strong>
+					<a href="/users/<?php echo $user['id']; ?>/destroy"
+						class="btn btn-xs btn-warning">
+						delete
+					</a>
+					<ul>
+					</ul>
+				</li>
+			<?php endforeach; ?>
 			</ul>
 		</div>
 	</body>
