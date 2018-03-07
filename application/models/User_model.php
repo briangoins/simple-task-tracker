@@ -4,12 +4,18 @@ class User_model extends CI_Model {
   public function __construct()
   {
     $this->load->database();
+    $this->load->model('task_model');
   }
 
   public function findAll()
 	{
 		$query = $this->db->get('users');
-    return $query->result_array();
+    $users = array();
+    foreach ($query->result_array() as $user) {
+      $user['tasks'] = $this->task_model->findByUserId($user['id']);
+      $users[] = $user;
+    }
+    return $users;
 	}
 
   public function create($data)

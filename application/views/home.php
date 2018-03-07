@@ -31,6 +31,27 @@
 						delete
 					</a>
 					<ul>
+						<li>
+							Create Task
+							<?php
+								$attributes = array('class' => 'form-inline');
+								echo form_open("users/".$user['id']."/tasks/create", $attributes);
+							?>
+								<div class="form-group">
+									<input type="text" name="title" class="input-sm form-control">
+									<input type="submit" class="btn btn-sm btn-default">
+								</div>
+							</form>
+							<?php foreach ($user['tasks'] as $task): ?>
+								<li>
+									<strong><?php echo $task['title']; ?></strong>
+									<a href="/tasks/<?php echo $task['id']; ?>/destroy"
+										class="btn btn-xs btn-warning">
+										delete
+									</a>
+								</li>
+							<?php endforeach; ?>
+						</li>
 					</ul>
 				</li>
 			<?php endforeach; ?>
