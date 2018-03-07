@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['users/create']['post'] = 'user/create';
+$route['users/(:num)/destroy']['get'] = 'user/destroy/$1';

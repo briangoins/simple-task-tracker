@@ -20,4 +20,9 @@ class User extends CI_Controller {
 
 		redirect('/');
 	}
+
+	public function destroy($id) {
+		$this->user_model->delete($id);
+		redirect('/');
+	}
 }
