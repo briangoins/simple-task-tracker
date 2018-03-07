@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# This script runs the SQL files in the db/migrate folder against a
+# development SQLite 3 database.
+
+find db/migrate/sqlite3 -name *.sql -exec sh -c 'sqlite3 db/development.sqlite3 < "{}"' \;

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# This script downloads/installs CodeIgniter
+# Works on Mac OS X 10.13.3
+
+TEMP_DIR="$(mktemp -d)"
+CODEIGNITER_FILE=$TEMP_DIR/codeigniter.zip
+curl -o $CODEIGNITER_FILE -sL https://codeload.github.com/bcit-ci/CodeIgniter/zip/3.1.7
+unzip -q -d $TEMP_DIR $CODEIGNITER_FILE
+find $TEMP_DIR/* -mindepth 1 -maxdepth 1 -exec cp -R {} . \;
+rm -rf $TEMP_DIR
+echo $TEMP_DIR

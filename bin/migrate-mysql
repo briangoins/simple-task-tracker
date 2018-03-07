@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# This script runs the SQL files in the db/migrate folder against a MySQL
+# database.
+
+echo Enter host [localhost]:
+read HOST
+echo Enter username []:
+read USER
+echo Enter password []:
+read -s PASS
+echo Enter database name []:
+read NAME
+
+if [ -z "$HOST" ]; then HOST='localhost'; fi
+
+if [ -z "$USER" ]; then
+  echo Missing user.
+  exit 1
+fi
+
+if [ -z "$PASS" ]; then
+  echo Missing pass.
+  exit 2
+fi
+
+export MYSQL_PWD=$PASS
+
+find -s db/migrate/mysql -name *.sql -exec sh -c "mysql -s -h$HOST -u$USER $NAME < '{}'" \;
