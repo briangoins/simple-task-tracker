@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = $_ENV['CI_BASE_URL'];
+$config['base_url'] = isset($_ENV['CI_BASE_URL']) ? $_ENV['CI_BASE_URL'] : '';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +35,7 @@ $config['base_url'] = $_ENV['CI_BASE_URL'];
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = isset($_ENV['CI_INDEX_PAGE']) ? $_ENV['CI_INDEX_PAGE'] : '';
 
 /*
 |--------------------------------------------------------------------------

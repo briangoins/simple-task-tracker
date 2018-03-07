@@ -9,6 +9,16 @@
 		<h1><?php echo $title; ?></h1>
 		<div class="col-md-4">
 			<h2>Create user</h2>
+			<?php
+				$attributes = array('class' => 'well');
+				echo form_open('users/create', $attributes);
+			?>
+				<div class="form-group">
+					<label for="username">Username</label>
+					<input class="form-control" type="text" name="username">
+				</div>
+				<input class="btn btn-default" type="submit">
+			</form>
 		</div>
 		<div class="col-md-6">
 			<h2>Users</h2>

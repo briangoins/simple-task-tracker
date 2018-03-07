@@ -20,6 +20,7 @@ class Home extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->helper('form');
 		$data['title'] = 'Simple Task Tracker';
 		$this->load->view('home', $data);
 	}
